@@ -13,23 +13,25 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(googletest)
 
 # Fetch Google Benchmark
-FetchContent_Declare(
-  benchmark
-  URL https://github.com/google/benchmark/archive/refs/tags/v1.8.3.zip
-)
-set(BENCHMARK_ENABLE_GTEST_TESTS OFF CACHE BOOL "Disable benchmark tests")
-FetchContent_MakeAvailable(benchmark)
-
-enable_testing()
+# FetchContent_Declare(
+#   benchmark
+#   URL https://github.com/google/benchmark/archive/refs/tags/v1.8.3.zip
+# )
+# set(BENCHMARK_ENABLE_GTEST_TESTS OFF CACHE BOOL "Disable benchmark tests")
+# FetchContent_MakeAvailable(benchmark)
 
 # 单元测试
-add_executable(stl ThreadPoolTest.cc)
-target_include_directories(stl PRIVATE ${CMAKE_SOURCE_DIR})
-target_link_libraries(stl gtest_main)
+set(TEST_SOURCES
+    TestMain.cc
+    ThreadPoolTest.cc
+)
+
+add_executable(ut ${TEST_SOURCES})
+target_include_directories(ut PRIVATE ${CMAKE_SOURCE_DIR})
+target_link_libraries(ut gtest_main)
 include(GoogleTest)
-gtest_discover_tests(stl)
 
 # Benchmark 测试
-add_executable(stl_benchmark ThreadPoolBenchmark.cpp)
-target_include_directories(stl_benchmark PRIVATE ${CMAKE_SOURCE_DIR})
-target_link_libraries(stl_benchmark benchmark::benchmark)
+#add_executable(stl_benchmark ThreadPoolBenchmark.cc)
+#target_include_directories(stl_benchmark PRIVATE ${CMAKE_SOURCE_DIR})
+#target_link_libraries(stl_benchmark benchmark::benchmark)

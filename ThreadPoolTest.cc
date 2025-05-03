@@ -1,4 +1,4 @@
-#include "ThreadPool.hpp"
+#include "ThreadPool.hh"
 #include <gtest/gtest.h>
 #include <chrono>
 #include <atomic>
@@ -30,3 +30,4 @@ TEST(ThreadPoolTest, StopGracefully)
 	pool.stop();
 	SUCCEED();
 }
+
