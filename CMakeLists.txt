@@ -24,6 +24,8 @@ FetchContent_MakeAvailable(googletest)
 set(TEST_SOURCES
     TestMain.cc
     ThreadPoolTest.cc
+    SortTest.cc
+    SpinLockTest.cc
 )
 
 add_executable(ut ${TEST_SOURCES})
