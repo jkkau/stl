@@ -22,10 +22,10 @@ FetchContent_MakeAvailable(googletest)
 
 # 单元测试
 set(TEST_SOURCES
-    TestMain.cc
-    ThreadPoolTest.cc
-    SortTest.cc
-    SpinLockTest.cc
+    ut/TestMain.cc
+    ut/ThreadPoolTest.cc
+    ut/SortTest.cc
+    ut/SpinLockTest.cc
 )
 
 add_executable(ut ${TEST_SOURCES})
