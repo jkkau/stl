@@ -20,12 +20,17 @@ FetchContent_MakeAvailable(googletest)
 # set(BENCHMARK_ENABLE_GTEST_TESTS OFF CACHE BOOL "Disable benchmark tests")
 # FetchContent_MakeAvailable(benchmark)
 
+# -Wall开始默认不开启的一些warning信息
+# -Werror把warning当作error
+add_compile_options(-Wall -Werror)
+
 # 单元测试
 set(TEST_SOURCES
     ut/TestMain.cc
     ut/ThreadPoolTest.cc
     ut/SortTest.cc
     ut/SpinLockTest.cc
+    ut/SharedPtrTest.cc
 )
 
 add_executable(ut ${TEST_SOURCES})
