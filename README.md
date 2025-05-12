@@ -6,3 +6,4 @@
 [Quick sort](./Sort.hh)  
 [Spin lock](./SpinLock.hh)  
 [SharedPtr](./SharedPtr.hh)  
+[String](./String.hh)  

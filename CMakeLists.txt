@@ -31,6 +31,7 @@ set(TEST_SOURCES
     ut/SortTest.cc
     ut/SpinLockTest.cc
     ut/SharedPtrTest.cc
+    ut/StringTest.cc
 )
 
 add_executable(ut ${TEST_SOURCES})

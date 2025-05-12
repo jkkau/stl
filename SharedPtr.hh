@@ -1,5 +1,6 @@
 #pragma once
 #include <cstdint>
+#include <utility>
 
 struct PtrCounter {
     PtrCounter(uint32_t c) : count(c) {
@@ -56,4 +57,18 @@ private:
 private:
     T *t;
     PtrCounter *counter;
+};
+
+
+// https://www.reddit.com/r/cpp/comments/17qitmk/make_shared_is_more_effective_that_standard/
+template<typename T, typename... Args>
+SharedPtr<T> makeShared(Args... args) {
+    void *raw = operator new(sizeof(T));
+    T *t = new(raw) T(std::forward<Args>(args)...);
+    return SharedPtr(t);
+}
+
+template<typename T>
+class weakPtr {
+
 };

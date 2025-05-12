@@ -2,7 +2,7 @@
 #include <gtest/gtest.h>
 
 TEST(SharedPtrTest, BasicCreationAndDestruction) {
-    SharedPtr<int> p(new int(10));
+    SharedPtr<int> p = makeShared<int>(10);
     EXPECT_EQ(*p.get(), 10);
     EXPECT_EQ(p.use_count(), 1);
 }
